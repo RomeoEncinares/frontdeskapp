@@ -199,9 +199,9 @@ def getBoxesCount(cursor, table_name):
     return sizes_count
 
 ### Function to count number of availability in a storage facility
-### Hard set to 10 boxes of availabilitiy each for small, medium, and large
 def calculateAvailability(sizes_count):
-    availability = {size: 10 - count for size, count in sizes_count.items()}
+    max_storage = {'small': 46, 'medium': 14, 'large': 12}
+    availability = {size: max_storage[size] - count for size, count in sizes_count.items()}
     return availability
 
 ### Function to print choices
